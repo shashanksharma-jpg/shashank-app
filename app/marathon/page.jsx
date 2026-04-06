@@ -5,7 +5,7 @@ import{createClient}from"@supabase/supabase-js";
 // ── Persistence: localStorage (instant) + Supabase (cross-device backup) ─────
 const _url  = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const _key  = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const _sb   = _url && _key ? createClient(_url, _key) : null;
+const _sb   = _url && _url.startsWith("https://") && _key ? createClient(_url, _key) : null;
 const LS_KEY    = "marathon-shashank-v1";
 const STATE_KEY = "marathon-app-shashank";
 
@@ -329,7 +329,10 @@ export default function App(){
         <div style={{maxWidth:740,margin:"0 auto"}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
             <div>
-              <div style={{fontSize:9,fontFamily:"monospace",color:"#42d692",letterSpacing:"0.2em",marginBottom:3}}>⚡ LIVE RUNNA · LONDON MARATHON 2026</div>
+              <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:3}}>
+                <a href="https://shashank.app" style={{display:"flex",alignItems:"center",gap:4,textDecoration:"none",color:"#3e3660",fontSize:9,fontFamily:"monospace",letterSpacing:"0.1em",padding:"2px 6px",borderRadius:4,border:"1px solid #1e1840",background:"rgba(255,255,255,0.02)"}} title="Home">← HOME</a>
+                <div style={{fontSize:9,fontFamily:"monospace",color:"#42d692",letterSpacing:"0.2em"}}>⚡ LONDON MARATHON 2026</div>
+              </div>
               <h1 style={{margin:0,fontSize:20,fontWeight:"normal",color:"#f0ebe2"}}>Race-Ready <span style={{color:"#c8a45e",fontStyle:"italic"}}>Travel App</span></h1>
               <div style={{fontSize:9,fontFamily:"monospace",color:"#3e3660",marginTop:2}}>SIN→LAS→LHR · Park Plaza · 🏅 26 APR WAVE 6 10:00 · 🎂 Ayaansh 10th · EDI→SIN</div>
             </div>

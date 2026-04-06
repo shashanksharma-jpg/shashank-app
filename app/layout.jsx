@@ -1,5 +1,12 @@
 import Providers from './providers';
-export const metadata = { title: 'shashank.app' };
+export const metadata = {
+  title: 'shashank.app',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'Shashank',
+  },
+};
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
